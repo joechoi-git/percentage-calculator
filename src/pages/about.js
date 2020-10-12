@@ -1,6 +1,7 @@
 import React from "react"
 import Header from "../components/header"
 import Layout from "../components/layout"
+import SEO from "../components/seo"
 import styles from "./about.module.css"
 
 const User = props => (
@@ -16,6 +17,7 @@ const User = props => (
 export default function About() {
   return (
     <Layout>
+    <SEO title="About title" description="About description" />
       <Header headerText="About Gatsby" />
       <Header headerText="It's pretty cool" />
       <p>Such wow. Very React.</p>
