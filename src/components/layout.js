@@ -1,8 +1,5 @@
 import React from "react"
-// import { Link } from "gatsby"
 import styles from "./layout.module.css"
-
-console.log(styles.layout);
 
 export default function Layout({ children }) {
   return (
