@@ -1,5 +1,4 @@
 import React from "react"
-import Header from "../components/header"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import styles from "./about.module.css"
@@ -18,9 +17,6 @@ export default function About() {
   return (
     <Layout>
     <SEO title="About title" description="About description" />
-      <Header headerText="About Gatsby" />
-      <Header headerText="It's pretty cool" />
-      <p>Such wow. Very React.</p>
       <User
         username="Jane Doe"
         avatar="https://s3.amazonaws.com/uifaces/faces/twitter/adellecharles/128.jpg"
