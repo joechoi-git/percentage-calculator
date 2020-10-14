@@ -3,6 +3,13 @@
     padding: 0 1rem;
 }
 
-.p {
+.logo {
     font-size: 1.5rem;
+}
+
+.socialshare {
+    text-align: right;
+}
+.socialshare button {
+    margin-left: 0.2rem;
 }
