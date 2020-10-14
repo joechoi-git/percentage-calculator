@@ -6,8 +6,8 @@
 
 module.exports = {
   siteMetadata: {
-    title: `Pandas Eating Lots`,
-    description: `A simple description about pandas eating lots...`,
+    title: `PercentCalculatorPro.com`,
+    description: `Percent Calculator Pro is a free online tool to calculate percentages.`,
     author: `gatsbyjs`,
   },
   plugins: [
