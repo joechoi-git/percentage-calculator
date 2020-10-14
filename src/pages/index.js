@@ -49,7 +49,7 @@ export default function Home() {
 
   return (
     <Layout>
-      <SEO title="Percent Calculator Pro" description="Percent Calculator Pro is a free online tool to calculate percentages." image="https://percentcalculatorpro.com/share.png" />
+      <SEO title="Percent Calculator Pro" description="Percent Calculator Pro is a free online tool to calculate percentages." image="https://percentcalculatorpro.com/share.jpg" />
       <h1 className={styles.h1}>Percent Calculator Pro is a free online tool to calculate percentages.</h1>
       <h2 className={styles.h2}>Percentage Difference</h2>
       <p>As an example, if the price is $1.50 and then it goes up to $2.25, what is the % difference?</p>
