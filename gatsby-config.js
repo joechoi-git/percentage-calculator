@@ -8,20 +8,14 @@ module.exports = {
   siteMetadata: {
     title: `PercentCalculatorPro.com`,
     description: `Percent Calculator Pro is a free online tool to calculate percentages.`,
-    author: `gatsbyjs`,
+    author: `Joe Choi`,
   },
   plugins: [
     {
-      resolve: `gatsby-plugin-typography`,
-      options: {
-        pathToConfigModule: `src/utils/typography`,
-      },
-    },
-    {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `GatsbyJS`,
-        short_name: `GatsbyJS`,
+        name: `PercentCalculatorPro.com`,
+        short_name: `PercentCalculatorPro.com`,
         start_url: `/`,
         background_color: `#6b37bf`,
         theme_color: `#6b37bf`,
