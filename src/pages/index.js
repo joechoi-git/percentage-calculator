@@ -52,6 +52,7 @@ export default function Home() {
       <SEO title="Percent Calculator Pro" description="Percent Calculator Pro is a free online tool to calculate percentages." />
       <h1 className={styles.h1}>Percent Calculator Pro is a free online tool to calculate percentages.</h1>
       <h2 className={styles.h2}>Percentage Difference</h2>
+      <p>As an example, if the price is $1.50 and then it goes up to $2.25, what is the % difference?</p>
       <form onSubmit={handleSubmit}>
         <Row className={styles.row}>
           <Col sm={3} className={styles.col}>
@@ -88,7 +89,7 @@ export default function Home() {
           <Col sm={3} className={styles.col}>
             <ResultTextField
               id="result"
-              label="Result"
+              label="Result (%)"
               variant="outlined"
               className={styles.textfield}
               value={result}
