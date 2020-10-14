@@ -6,7 +6,7 @@ export default function Layout({ children }) {
   return (
     <Container className={styles.layout}>
       <header style={{ marginBottom: `1.5rem` }}>
-        <h3>PercentCalculatorPro.com</h3>
+        <h1 className={styles.h1}>PercentCalculatorPro.com</h1>
         {/*}
         <Visible xs sm>
           <p> This is rendered only on mobile </p>
@@ -28,7 +28,7 @@ export default function Layout({ children }) {
       {*/}
       </header>
       {children}
-      <footer>
+      <footer style={{ marginTop: `1.5rem` }}>
         <p>All rights reserved.</p>
       </footer>
     </Container>

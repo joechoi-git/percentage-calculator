@@ -1,3 +1,19 @@
 .h1 {
     font-size: 1rem;
 }
+
+.h2 {
+    font-size: 1rem;
+}
+
+.input, .result {
+    background-color: #fff;
+}
+
+.result {
+    color: #000;
+}
+
+.button {
+    height: 3rem;
+}
