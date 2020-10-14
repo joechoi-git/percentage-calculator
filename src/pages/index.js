@@ -1,7 +1,7 @@
 import React from "react"
 import { Button, TextField } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
-import { Container, Row, Col, Visible } from "react-grid-system";
+import { Row, Col } from "react-grid-system";
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import styles from "./index.module.css"
