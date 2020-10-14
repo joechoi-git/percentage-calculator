@@ -1,5 +1,5 @@
 import React from "react"
-import { Container, Row, Col, Visible } from "react-grid-system";
+import { Container, Row, Col, useScreenClass } from "react-grid-system";
 import {
   EmailShareButton,
   EmailIcon,
@@ -17,18 +17,18 @@ import styles from "./layout.module.css"
 export default function Layout({ children }) {
   const shareUrl = 'https://percentcalculatorpro.com/';
   const title = 'Percent Calculator Pro';
+  const screenClass = useScreenClass();
   return (
     <Container className={styles.layout}>
       <header style={{ marginBottom: `1.5rem` }}>
-        <p className={styles.logo}>PercentCalculatorPro.com</p>
-      </header>
-      {children}
-      <footer style={{ marginTop: `1.5rem` }}>
         <Row>
-          <Col sm={4}>
-            <p>&copy; 2020 Joe Choi</p>
+          <Col sm={6}>
+            <p className={styles.logo}>PercentCalculatorPro.com</p>
           </Col>
-          <Col sm={8} className={styles.socialshare}>
+          <Col sm={6} 
+            className={styles.socialshare}
+            style={{ textAlign: ['lg', 'xl', 'xxl'].includes(screenClass) ? 'right' : 'left' }}
+          >
             <EmailShareButton
               url={shareUrl}
               subject={title}
@@ -62,6 +62,10 @@ export default function Layout({ children }) {
             </WhatsappShareButton>
           </Col>
         </Row>
+      </header>
+      {children}
+      <footer style={{ marginTop: `1.5rem` }}>
+        <p>&copy; 2020 Joe Choi</p>
       </footer>
     </Container>
   )
