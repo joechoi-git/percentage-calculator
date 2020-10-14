@@ -29,7 +29,7 @@ export default function Layout({ children }) {
       </header>
       {children}
       <footer style={{ marginTop: `1.5rem` }}>
-        <p>Copyright 2020. Joe Choi.</p>
+        <p>&copy; 2020 Joe Choi</p>
       </footer>
     </Container>
   )
