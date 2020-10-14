@@ -1,9 +1,18 @@
 import React from "react"
-import { Button, TextField } from '@material-ui/core';
+import { Button, TextField } from "@material-ui/core";
+import { withStyles } from "@material-ui/core/styles";
 import { Container, Row, Col, Visible } from "react-grid-system";
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import styles from "./index.module.css"
+
+const ResultTextField = withStyles({
+  root: {
+    '& .MuiOutlinedInput-input': {
+      fontWeight: 'bolder',
+    },
+  },
+})(TextField);
 
 export default function Home() {
   const [now, setNow] = React.useState("");
@@ -12,11 +21,21 @@ export default function Home() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // console.log('now', now, 'future', future);
     setResult("");
-    if (now!=="" && future!=="") {
-      let output = ((future / now) - 1) * 100;
-      setResult(`${output}%`);
+    document.getElementById("result").style.color="black";
+    try {
+      if (now!=="" && future!=="") {
+        setNow(parseFloat(now));
+        setFuture(parseFloat(future));
+        let output = ((future / now) - 1) * 100;
+        setResult(`${output.toFixed(2)}%`);
+        if (output >= 0) {
+          document.getElementById("result").style.color="green";
+        } else {
+          document.getElementById("result").style.color="red";
+        }
+      }
+    } catch (error) {  
     }
   }
 
@@ -34,26 +53,26 @@ export default function Home() {
       <h1 className={styles.h1}>Percent Calculator Pro is a free online tool to calculate percentages.</h1>
       <h2 className={styles.h2}>Percentage Difference</h2>
       <form onSubmit={handleSubmit}>
-        <Row style={{margin: `1rem`, padding: `2rem`, backgroundColor: `#fffcfd`,  border: `1px solid black`, borderRadius: `0.5rem`}}>
-          <Col sm={3} style={{marginBottom: `1rem`}}>
+        <Row className={styles.row}>
+          <Col sm={3} className={styles.col}>
             <TextField
               label="Now (any number)"
               variant="outlined"
-              className={styles.input}
+              className={styles.textfield}
               value={now}
-              onChange={(e) => setNow(parseFloat(e.target.value.trim()))}
+              onChange={(e) => setNow(e.target.value.trim())}
             />
           </Col>
-          <Col sm={3} style={{marginBottom: `1rem`}}>
+          <Col sm={3} className={styles.col}>
             <TextField
               label="Future (any number)"
               variant="outlined"
-              className={styles.input}
+              className={styles.textfield}
               value={future}
-              onChange={(e) => setFuture(parseFloat(e.target.value.trim()))}
+              onChange={(e) => setFuture(e.target.value.trim())}
             />
           </Col> 
-          <Col sm={3} style={{marginBottom: `1rem`}}>
+          <Col sm={3} className={styles.col}>
             <Button 
               type="submit"
               variant="contained" 
@@ -64,11 +83,12 @@ export default function Home() {
               Calculate
             </Button>
           </Col>
-          <Col sm={3} style={{marginBottom: `1rem`}}>
-            <TextField
+          <Col sm={3} className={styles.col}>
+            <ResultTextField
+              id="result"
               label="Result"
               variant="outlined"
-              className={styles.result}
+              className={styles.textfield}
               value={result}
               onFocus={(e) => handleFocus(e)}
             />

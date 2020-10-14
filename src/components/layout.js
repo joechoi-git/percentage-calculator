@@ -6,7 +6,7 @@ export default function Layout({ children }) {
   return (
     <Container className={styles.layout}>
       <header style={{ marginBottom: `1.5rem` }}>
-        <h1 className={styles.h1}>PercentCalculatorPro.com</h1>
+        <p className={styles.p}>PercentCalculatorPro.com</p>
         {/*}
         <Visible xs sm>
           <p> This is rendered only on mobile </p>

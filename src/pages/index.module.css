@@ -1,17 +1,26 @@
 .h1 {
     font-size: 1rem;
+    font-weight: normal;
 }
 
 .h2 {
     font-size: 1rem;
 }
 
-.input, .result {
-    background-color: #fff;
+.row {
+    margin: 1rem; 
+    padding: 2rem;
+    background-color: #fffcfd;
+    border: 1px solid black; 
+    border-radius: 0.5rem
 }
 
-.result {
-    color: #000;
+.col {
+    margin-bottom: 1rem
+}
+
+.textfield {
+    background-color: #fff;
 }
 
 .button {
