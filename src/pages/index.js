@@ -58,6 +58,7 @@ export default function Home() {
             <TextField
               label="Now (any number)"
               variant="outlined"
+              type="number"
               className={styles.textfield}
               value={now}
               onChange={(e) => setNow(e.target.value.trim())}
@@ -67,6 +68,7 @@ export default function Home() {
             <TextField
               label="Future (any number)"
               variant="outlined"
+              type="number"
               className={styles.textfield}
               value={future}
               onChange={(e) => setFuture(e.target.value.trim())}
