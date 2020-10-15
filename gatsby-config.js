@@ -9,6 +9,7 @@ module.exports = {
     title: `PercentCalculatorPro.com`,
     description: `Percent Calculator Pro is a free online tool to calculate percentages.`,
     author: `Joe Choi`,
+    siteUrl: `https://percentcalculatorpro.com`,
   },
   plugins: [
     {
@@ -17,8 +18,8 @@ module.exports = {
         name: `PercentCalculatorPro.com`,
         short_name: `PercentCalculatorPro.com`,
         start_url: `/`,
-        background_color: `#6b37bf`,
-        theme_color: `#6b37bf`,
+        background_color: `#f2f2f2`,
+        theme_color: `#f2f2f2`,
         display: `standalone`,
         icon: `src/images/icon.png`,
       },
@@ -26,9 +27,10 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: "UA-180603059-1",
+        trackingId: `UA-180603059-1`,
       },
     },
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-sitemap`,
   ],
 }
