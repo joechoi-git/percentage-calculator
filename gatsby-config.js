@@ -30,6 +30,12 @@ module.exports = {
         trackingId: `UA-180603059-1`,
       },
     },
+    {
+      resolve: `@isamrish/gatsby-plugin-google-adsense`,
+      options: {
+        googleAdClientId: `ca-pub-8044960938685094`
+      }
+    }
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sitemap`,
   ],
