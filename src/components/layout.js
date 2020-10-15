@@ -65,7 +65,7 @@ export default function Layout({ children }) {
       </header>
       {children}
       <footer style={{ marginTop: `1.5rem` }}>
-        <p>&copy; 2020 Joe Choi</p>
+        <p>&copy; 2020 Pro Calculator Series</p>
       </footer>
     </Container>
   )

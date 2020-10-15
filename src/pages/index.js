@@ -57,9 +57,11 @@ export default function Home() {
       />
       <h1 className={styles.h1}>Percent Calculator Pro is a free online tool to calculate percentages.</h1>
       <h2 className={styles.h2}>Percentage Difference</h2>
-      <p>As an example, if the price is $1.50 and then it goes up to $2.25, what is the % difference?</p>
       <form onSubmit={handleSubmit}>
         <Row className={styles.row}>
+          <Col sm={12}>
+            <p>E.g. If the price is $1.50 and then goes up to $2.25, what is the % difference?</p>
+          </Col>
           <Col sm={3} className={styles.col}>
             <TextField
               label="Now (any number)"
