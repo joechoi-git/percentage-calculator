@@ -35,7 +35,7 @@ module.exports = {
       options: {
         googleAdClientId: `ca-pub-8044960938685094`
       }
-    }
+    },
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sitemap`,
   ],
