@@ -15,34 +15,65 @@ const ResultTextField = withStyles({
 })(TextField);
 
 export default function Home() {
-  const [now, setNow] = React.useState("");
-  const [future, setFuture] = React.useState("");
-  const [result, setResult] = React.useState("");
+  const [form1Input1, setForm1Input1] = React.useState("");
+  const [form1Input2, setForm1Input2] = React.useState("");
+  const [form1Result, setForm1Result] = React.useState("");
+  const [form2Input1, setForm2Input1] = React.useState("");
+  const [form2Input2, setForm2Input2] = React.useState("");
+  const [form2Result, setForm2Result] = React.useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmitForm1 = (e) => {
     e.preventDefault();
-    setResult("");
-    document.getElementById("result").style.color="black";
+    setForm1Result("");
+    document.getElementById("form1-result").style.color="black";
     try {
-      if (now!=="" && future!=="") {
-        setNow(parseFloat(now));
-        setFuture(parseFloat(future));
-        let output = ((future / now) - 1) * 100;
-        setResult(`${output.toFixed(2)}%`);
+      if (form1Input1!=="" && form1Input2!=="") {
+        setForm1Input1(parseFloat(form1Input1));
+        setForm1Input2(parseFloat(form1Input2));
+        let output = ((form1Input2 / form1Input1) - 1) * 100;
+        setForm1Result(`${output.toFixed(2)}%`);
         if (output >= 0) {
-          document.getElementById("result").style.color="green";
+          document.getElementById("form1-result").style.color="green";
         } else {
-          document.getElementById("result").style.color="red";
+          document.getElementById("form1-result").style.color="red";
         }
       }
     } catch (error) {  
     }
   }
 
-  const handleFocus = (e) => {
+  const handleFocusForm1 = (e) => {
     try {
       e.target.select();
-      navigator.clipboard.writeText(result);
+      // navigator.clipboard.writeText(form1Result);
+    } catch (error) {
+    }
+  }
+
+  const handleSubmitForm2 = (e) => {
+    e.preventDefault();
+    setForm2Result("");
+    document.getElementById("form2-result").style.color="black";
+    try {
+      if (form2Input1!=="" && form2Input2!=="") {
+        setForm2Input1(parseFloat(form2Input1));
+        setForm2Input2(parseFloat(form2Input2));
+        let output = (form2Input1 / form2Input2) * 100;
+        setForm2Result(`${output.toFixed(2)}%`);
+        if (output >= 0) {
+          document.getElementById("form2-result").style.color="green";
+        } else {
+          document.getElementById("form2-result").style.color="red";
+        }
+      }
+    } catch (error) {  
+    }
+  }
+
+  const handleFocusForm2 = (e) => {
+    try {
+      e.target.select();
+      // navigator.clipboard.writeText(form2Result);
     } catch (error) {
     }
   }
@@ -56,11 +87,12 @@ export default function Home() {
         url="https://percentcalculatorpro.com" 
       />
       <h1 className={styles.h1}>Percent Calculator Pro is a free online tool to calculate percentages.</h1>
+
       <h2 className={styles.h2}>Percentage Difference</h2>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmitForm1}>
         <Row className={styles.row}>
           <Col sm={12}>
-            <p>E.g. If the price is $1.50 and then goes up to $2.25, what is the % difference?</p>
+            <p>E.g. If the price moves from $1.50 to $2.25, what is the % difference?</p>
           </Col>
           <Col sm={3} className={styles.col}>
             <TextField
@@ -68,8 +100,8 @@ export default function Home() {
               variant="outlined"
               type="number"
               className={styles.textfield}
-              value={now}
-              onChange={(e) => setNow(e.target.value.trim())}
+              value={form1Input1}
+              onChange={(e) => setForm1Input1(e.target.value.trim())}
             />
           </Col>
           <Col sm={3} className={styles.col}>
@@ -78,8 +110,8 @@ export default function Home() {
               variant="outlined"
               type="number"
               className={styles.textfield}
-              value={future}
-              onChange={(e) => setFuture(e.target.value.trim())}
+              value={form1Input2}
+              onChange={(e) => setForm1Input2(e.target.value.trim())}
             />
           </Col> 
           <Col sm={3} className={styles.col}>
@@ -88,19 +120,69 @@ export default function Home() {
               variant="contained" 
               color="secondary" 
               className={styles.button}
-              onClick={(e) => { handleSubmit(e) }}
+              onClick={(e) => { handleSubmitForm1(e) }}
             >
               Calculate
             </Button>
           </Col>
           <Col sm={3} className={styles.col}>
             <ResultTextField
-              id="result"
+              id="form1-result"
               label="Result (%)"
               variant="outlined"
               className={styles.textfield}
-              value={result}
-              onFocus={(e) => handleFocus(e)}
+              value={form1Result}
+              onFocus={(e) => handleFocusForm1(e)}
+            />
+          </Col>
+        </Row>
+      </form>
+
+      <h2 className={styles.h2}>Percentage Calculation</h2>
+      <form onSubmit={handleSubmitForm2}>
+        <Row className={styles.row}>
+          <Col sm={12}>
+            <p>E.g. $160 out of $750 is what percent?</p>
+          </Col>
+          <Col sm={3} className={styles.col}>
+            <TextField
+              label="(any number)"
+              variant="outlined"
+              type="number"
+              className={styles.textfield}
+              value={form2Input1}
+              onChange={(e) => setForm2Input1(e.target.value.trim())}
+            />
+          </Col>
+          <Col sm={3} className={styles.col}>
+            <TextField
+              label="(any number)"
+              variant="outlined"
+              type="number"
+              className={styles.textfield}
+              value={form2Input2}
+              onChange={(e) => setForm2Input2(e.target.value.trim())}
+            />
+          </Col> 
+          <Col sm={3} className={styles.col}>
+            <Button 
+              type="submit"
+              variant="contained" 
+              color="secondary" 
+              className={styles.button}
+              onClick={(e) => { handleSubmitForm2(e) }}
+            >
+              Calculate
+            </Button>
+          </Col>
+          <Col sm={3} className={styles.col}>
+            <ResultTextField
+              id="form2-result"
+              label="Result (%)"
+              variant="outlined"
+              className={styles.textfield}
+              value={form2Result}
+              onFocus={(e) => handleFocusForm2(e)}
             />
           </Col>
         </Row>
