@@ -1,11 +1,11 @@
 import React from "react"
-import { Button, TextField } from "@material-ui/core";
-import { withStyles } from "@material-ui/core/styles";
-import AppBar from "@material-ui/core/AppBar";
-import Tabs from "@material-ui/core/Tabs";
-import Tab from "@material-ui/core/Tab";
-import Box from "@material-ui/core/Box";
-import { Row, Col } from "react-grid-system";
+import { Button, TextField } from "@material-ui/core"
+import { withStyles } from "@material-ui/core/styles"
+import AppBar from "@material-ui/core/AppBar"
+import Tabs from "@material-ui/core/Tabs"
+import Tab from "@material-ui/core/Tab"
+import Box from "@material-ui/core/Box"
+import { Row, Col } from "react-grid-system"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import styles from "./index.module.css"

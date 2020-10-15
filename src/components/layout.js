@@ -1,5 +1,5 @@
 import React from "react"
-import { Container, Row, Col, useScreenClass } from "react-grid-system";
+import { Container, Row, Col, useScreenClass } from "react-grid-system"
 import {
   EmailShareButton,
   EmailIcon,
@@ -13,6 +13,7 @@ import {
   WhatsappIcon,
 } from "react-share"; // https://github.com/nygardk/react-share/blob/master/demo/Demo.tsx
 import styles from "./layout.module.css"
+import logo from "../images/logo.png"
 
 export default function Layout({ children }) {
   const shareUrl = 'https://percentcalculatorpro.com/';
@@ -23,11 +24,17 @@ export default function Layout({ children }) {
       <header style={{ marginBottom: `1.5rem` }}>
         <Row>
           <Col sm={6}>
-            <p className={styles.logo}>PercentCalculatorPro.com</p>
+            <h1 
+              className={styles.logo}
+              style={{ fontSize: ['md', 'lg', 'xl', 'xxl'].includes(screenClass) ? '1.5rem' : '1.25rem' }}
+            >
+              <img src={logo} alt="Percent Calculator Pro is a free online tool to calculate percentages."/>
+              PercentCalculatorPro.com
+            </h1>
           </Col>
           <Col sm={6} 
             className={styles.socialshare}
-            style={{ textAlign: ['lg', 'xl', 'xxl'].includes(screenClass) ? 'right' : 'left' }}
+            style={{ textAlign: ['md', 'lg', 'xl', 'xxl'].includes(screenClass) ? 'right' : 'left' }}
           >
             <EmailShareButton
               url={shareUrl}
