@@ -1,10 +1,23 @@
 import React from "react"
 import { Button, TextField } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
+import AppBar from "@material-ui/core/AppBar";
+import Tabs from "@material-ui/core/Tabs";
+import Tab from "@material-ui/core/Tab";
+import Box from "@material-ui/core/Box";
 import { Row, Col } from "react-grid-system";
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import styles from "./index.module.css"
+
+function TabPanel(props) {
+  const { children, value, index, ...other } = props;
+  return (
+    <div {...other}>
+      {value === index && <Box p={3}>{children}</Box>}
+    </div>
+  );
+}
 
 const ResultTextField = withStyles({
   root: {
@@ -15,12 +28,17 @@ const ResultTextField = withStyles({
 })(TextField);
 
 export default function Home() {
+  const [tab, setTab] = React.useState(0);
   const [form1Input1, setForm1Input1] = React.useState("");
   const [form1Input2, setForm1Input2] = React.useState("");
   const [form1Result, setForm1Result] = React.useState("");
   const [form2Input1, setForm2Input1] = React.useState("");
   const [form2Input2, setForm2Input2] = React.useState("");
   const [form2Result, setForm2Result] = React.useState("");
+
+  const handleChangeTab = (event, newValue) => {
+    setTab(newValue);
+  };
 
   const handleSubmitForm1 = (e) => {
     e.preventDefault();
@@ -87,106 +105,110 @@ export default function Home() {
         url="https://percentcalculatorpro.com" 
       />
       <h1 className={styles.h1}>Percent Calculator Pro is a free online tool to calculate percentages.</h1>
-
-      <h2 className={styles.h2}>Percentage Difference</h2>
-      <form onSubmit={handleSubmitForm1}>
-        <Row className={styles.row}>
-          <Col sm={12}>
-            <p>E.g. If the price moves from $1.50 to $2.25, what is the % difference?</p>
-          </Col>
-          <Col sm={3} className={styles.col}>
-            <TextField
-              label="Now (any number)"
-              variant="outlined"
-              type="number"
-              className={styles.textfield}
-              value={form1Input1}
-              onChange={(e) => setForm1Input1(e.target.value.trim())}
-            />
-          </Col>
-          <Col sm={3} className={styles.col}>
-            <TextField
-              label="Future (any number)"
-              variant="outlined"
-              type="number"
-              className={styles.textfield}
-              value={form1Input2}
-              onChange={(e) => setForm1Input2(e.target.value.trim())}
-            />
-          </Col> 
-          <Col sm={3} className={styles.col}>
-            <Button 
-              type="submit"
-              variant="contained" 
-              color="secondary" 
-              className={styles.button}
-              onClick={(e) => { handleSubmitForm1(e) }}
-            >
-              Calculate
-            </Button>
-          </Col>
-          <Col sm={3} className={styles.col}>
-            <ResultTextField
-              id="form1-result"
-              label="Result (%)"
-              variant="outlined"
-              className={styles.textfield}
-              value={form1Result}
-              onFocus={(e) => handleFocusForm1(e)}
-            />
-          </Col>
-        </Row>
-      </form>
-
-      <h2 className={styles.h2}>Percentage Calculation</h2>
-      <form onSubmit={handleSubmitForm2}>
-        <Row className={styles.row}>
-          <Col sm={12}>
-            <p>E.g. $160 out of $750 is what percent?</p>
-          </Col>
-          <Col sm={3} className={styles.col}>
-            <TextField
-              label="(any number)"
-              variant="outlined"
-              type="number"
-              className={styles.textfield}
-              value={form2Input1}
-              onChange={(e) => setForm2Input1(e.target.value.trim())}
-            />
-          </Col>
-          <Col sm={3} className={styles.col}>
-            <TextField
-              label="(any number)"
-              variant="outlined"
-              type="number"
-              className={styles.textfield}
-              value={form2Input2}
-              onChange={(e) => setForm2Input2(e.target.value.trim())}
-            />
-          </Col> 
-          <Col sm={3} className={styles.col}>
-            <Button 
-              type="submit"
-              variant="contained" 
-              color="secondary" 
-              className={styles.button}
-              onClick={(e) => { handleSubmitForm2(e) }}
-            >
-              Calculate
-            </Button>
-          </Col>
-          <Col sm={3} className={styles.col}>
-            <ResultTextField
-              id="form2-result"
-              label="Result (%)"
-              variant="outlined"
-              className={styles.textfield}
-              value={form2Result}
-              onFocus={(e) => handleFocusForm2(e)}
-            />
-          </Col>
-        </Row>
-      </form>
-    </Layout>
+      <AppBar position="static">
+        <Tabs value={tab} onChange={handleChangeTab}>
+          <Tab label="% Change (x to y)" />
+          <Tab label="% Compute (x out of y)" />
+        </Tabs>
+      </AppBar>
+      <TabPanel value={tab} index={0} className={styles.tab}>
+        <h2 className={styles.h2}>Percentage Change (X to Y)</h2>
+        <p>E.g. If the price moves from $1.50 to $2.25, what is the % difference?</p>
+        <form onSubmit={handleSubmitForm1}>
+          <Row className={styles.row}>
+            <Col sm={3} className={styles.col}>
+              <TextField
+                label="X (any number)"
+                variant="outlined"
+                type="number"
+                className={styles.textfield}
+                value={form1Input1}
+                onChange={(e) => setForm1Input1(e.target.value.trim())}
+              />
+            </Col>
+            <Col sm={3} className={styles.col}>
+              <TextField
+                label="Y (any number)"
+                variant="outlined"
+                type="number"
+                className={styles.textfield}
+                value={form1Input2}
+                onChange={(e) => setForm1Input2(e.target.value.trim())}
+              />
+            </Col> 
+            <Col sm={3} className={styles.col}>
+              <Button 
+                type="submit"
+                variant="contained" 
+                color="secondary" 
+                className={styles.button}
+                onClick={(e) => { handleSubmitForm1(e) }}
+              >
+                Calculate
+              </Button>
+            </Col>
+            <Col sm={3} className={styles.col}>
+              <ResultTextField
+                id="form1-result"
+                label="Result (%)"
+                variant="outlined"
+                className={styles.textfield}
+                value={form1Result}
+                onFocus={(e) => handleFocusForm1(e)}
+              />
+            </Col>
+          </Row>
+        </form>
+      </TabPanel>
+      <TabPanel value={tab} index={1} className={styles.tab}>
+        <h2 className={styles.h2}>Percentage Compute (X out of Y) </h2>
+        <p>E.g. $160 out of $750 is what percent?</p>
+        <form onSubmit={handleSubmitForm2}>
+          <Row className={styles.row}>
+            <Col sm={3} className={styles.col}>
+              <TextField
+                label="X (any number)"
+                variant="outlined"
+                type="number"
+                className={styles.textfield}
+                value={form2Input1}
+                onChange={(e) => setForm2Input1(e.target.value.trim())}
+              />
+            </Col>
+            <Col sm={3} className={styles.col}>
+              <TextField
+                label="Y (any number)"
+                variant="outlined"
+                type="number"
+                className={styles.textfield}
+                value={form2Input2}
+                onChange={(e) => setForm2Input2(e.target.value.trim())}
+              />
+            </Col> 
+            <Col sm={3} className={styles.col}>
+              <Button 
+                type="submit"
+                variant="contained" 
+                color="secondary" 
+                className={styles.button}
+                onClick={(e) => { handleSubmitForm2(e) }}
+              >
+                Calculate
+              </Button>
+            </Col>
+            <Col sm={3} className={styles.col}>
+              <ResultTextField
+                id="form2-result"
+                label="Result (%)"
+                variant="outlined"
+                className={styles.textfield}
+                value={form2Result}
+                onFocus={(e) => handleFocusForm2(e)}
+              />
+            </Col>
+          </Row>
+        </form>
+      </TabPanel>
+    </Layout>  
   )
 }

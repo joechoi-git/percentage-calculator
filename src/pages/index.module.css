@@ -9,17 +9,18 @@
     font-size: 1rem;
 }
 
+.tab {
+    background-color: #fff;
+}
+
 .row {
     margin-left: 0 !important;
     margin-right: 0 !important;
-    padding: 0.5rem;
-    background-color: #fffcfd;
-    border: 1px solid black; 
-    border-radius: 0.5rem
 }
 
 .col {
-    margin-bottom: 1rem
+    margin-bottom: 1rem;
+    padding-left: 0 !important;
 }
 
 .textfield {
