@@ -1,5 +1,6 @@
 import React from "react"
 import { Container, Row, Col, useScreenClass } from "react-grid-system"
+import { Navbar, Nav } from "react-bootstrap";
 import {
   EmailShareButton,
   EmailIcon,
@@ -23,13 +24,30 @@ export default function Layout({ children }) {
   return (
     <Container className={styles.layout}>
       <header style={{ marginBottom: `1.5rem` }}>
-        <h1 
-          className={styles.logo}
-          style={{ fontSize: ['md', 'lg', 'xl', 'xxl'].includes(screenClass) ? '1.5rem' : '1.25rem' }}
-        >
-          <img src={logo} alt="Percent Calculator Pro is a free online tool to calculate percentages."/>
-          PercentCalculatorPro.com
-        </h1>
+        <Navbar expand="lg" style={{padding:`0`}}>
+          <Navbar.Brand href="/">
+            <h1 
+              className={styles.logo}
+              style={{ fontSize: ['md', 'lg', 'xl', 'xxl'].includes(screenClass) ? '1.5rem' : '1.25rem' }}
+            >
+              <img 
+                src={logo} 
+                alt="Percent Calculator Pro is a free online tool to calculate percentages."
+                style={{ height: ['md', 'lg', 'xl', 'xxl'].includes(screenClass) ? '2rem' : '1.25rem' }}
+              />
+              Percent Calculator Pro
+            </h1>
+          </Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="mr-auto">
+              <Nav.Link href="/">Home</Nav.Link>
+              {/*}
+              <Nav.Link href="/about">About</Nav.Link>
+              {*/}
+            </Nav>
+          </Navbar.Collapse>
+        </Navbar>
         <Helmet>
           <script type="text/javascript">var ezoicId = 221094;</script>
           <script type="text/javascript" src="//go.ezoic.net/ezoic/ezoic.js"></script>
