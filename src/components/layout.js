@@ -23,15 +23,24 @@ export default function Layout({ children }) {
   return (
     <Container className={styles.layout}>
       <header style={{ marginBottom: `1.5rem` }}>
+        <h1 
+          className={styles.logo}
+          style={{ fontSize: ['md', 'lg', 'xl', 'xxl'].includes(screenClass) ? '1.5rem' : '1.25rem' }}
+        >
+          <img src={logo} alt="Percent Calculator Pro is a free online tool to calculate percentages."/>
+          PercentCalculatorPro.com
+        </h1>
+        <Helmet>
+          <script type="text/javascript">var ezoicId = 221094;</script>
+          <script type="text/javascript" src="//go.ezoic.net/ezoic/ezoic.js"></script>
+        </Helmet>
+        <div id="ezoic-pub-ad-placeholder-101"> </div>
+      </header>
+      {children}
+      <footer style={{ marginTop: `1.5rem` }}>
         <Row>
           <Col sm={6}>
-            <h1 
-              className={styles.logo}
-              style={{ fontSize: ['md', 'lg', 'xl', 'xxl'].includes(screenClass) ? '1.5rem' : '1.25rem' }}
-            >
-              <img src={logo} alt="Percent Calculator Pro is a free online tool to calculate percentages."/>
-              PercentCalculatorPro.com
-            </h1>
+            <p>&copy; 2020 Pro Calculator Series</p>
           </Col>
           <Col sm={6} 
             className={styles.socialshare}
@@ -70,15 +79,6 @@ export default function Layout({ children }) {
             </WhatsappShareButton>
           </Col>
         </Row>
-        <div id="ezoic-pub-ad-placeholder-101"> </div>
-      </header>
-      {children}
-      <footer style={{ marginTop: `1.5rem` }}>
-        <p>&copy; 2020 Pro Calculator Series</p>
-        <Helmet>
-          <script type="text/javascript">var ezoicId = 221094;</script>
-          <script type="text/javascript" src="//go.ezoic.net/ezoic/ezoic.js"></script>
-        </Helmet>
       </footer>
     </Container>
   )
