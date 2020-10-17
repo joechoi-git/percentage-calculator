@@ -12,6 +12,7 @@ import {
   WhatsappShareButton,
   WhatsappIcon,
 } from "react-share"; // https://github.com/nygardk/react-share/blob/master/demo/Demo.tsx
+import Helmet from "react-helmet"
 import styles from "./layout.module.css"
 import logo from "../images/logo.png"
 
@@ -73,6 +74,10 @@ export default function Layout({ children }) {
       {children}
       <footer style={{ marginTop: `1.5rem` }}>
         <p>&copy; 2020 Pro Calculator Series</p>
+        <Helmet>
+          <script type="text/javascript">var ezoicId = 221094;</script>
+          <script type="text/javascript" src="//go.ezoic.net/ezoic/ezoic.js"></script>
+        </Helmet>
       </footer>
     </Container>
   )
