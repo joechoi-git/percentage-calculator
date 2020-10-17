@@ -70,6 +70,7 @@ export default function Layout({ children }) {
             </WhatsappShareButton>
           </Col>
         </Row>
+        <div id="ezoic-pub-ad-placeholder-101"> </div>
       </header>
       {children}
       <footer style={{ marginTop: `1.5rem` }}>
