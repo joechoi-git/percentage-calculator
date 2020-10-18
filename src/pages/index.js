@@ -1,6 +1,6 @@
 import React from "react"
 import { Row, Col } from "react-grid-system"
-import { Button, TextField } from "@material-ui/core"
+import { Button, TextField, Paper } from "@material-ui/core"
 import { withStyles } from "@material-ui/core/styles"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -53,53 +53,55 @@ export default function Home() {
             image="https://percentcalculatorpro.com/share.jpg" 
             url="https://percentcalculatorpro.com" 
             />
-            <h2 className={styles.h2}>Percentage Increase or Decrease (X to Y)</h2>
-            <p>E.g. If the price moves from $1.50 to $2.25, what is the % difference?</p>
-            <form onSubmit={handleSubmit}>
-                <Row className={styles.row}>
-                    <Col sm={3} className={styles.col}>
-                        <TextField
-                        label="X (any number)"
-                        variant="outlined"
-                        type="number"
-                        className={styles.textfield}
-                        value={input1}
-                        onChange={(e) => setInput1(e.target.value.trim())}
-                        />
-                    </Col>
-                    <Col sm={3} className={styles.col}>
-                        <TextField
-                        label="Y (any number)"
-                        variant="outlined"
-                        type="number"
-                        className={styles.textfield}
-                        value={input2}
-                        onChange={(e) => setInput2(e.target.value.trim())}
-                        />
-                    </Col> 
-                    <Col sm={3} className={styles.col}>
-                        <Button 
-                        type="submit"
-                        variant="contained" 
-                        color="secondary" 
-                        className={styles.button}
-                        onClick={(e) => { handleSubmit(e) }}
-                        >
-                        Calculate
-                        </Button>
-                    </Col>
-                    <Col sm={3} className={styles.col}>
-                        <ResultTextField
-                        id="result"
-                        label="Result (%)"
-                        variant="outlined"
-                        className={styles.textfield}
-                        value={result}
-                        onFocus={(e) => handleFocus(e)}
-                        />
-                    </Col>
-                </Row>
-            </form>
+            <Paper elevation={3} className={styles.paper}>
+                <h2 className={styles.h2}>Percentage Increase or Decrease (X to Y)</h2>
+                <p>E.g. If the price moves from $1.50 to $2.25, what is the % difference?</p>
+                <form onSubmit={handleSubmit}>
+                    <Row className={styles.row}>
+                        <Col sm={3} className={styles.col}>
+                            <TextField
+                            label="X (any number)"
+                            variant="outlined"
+                            type="number"
+                            className={styles.textfield}
+                            value={input1}
+                            onChange={(e) => setInput1(e.target.value.trim())}
+                            />
+                        </Col>
+                        <Col sm={3} className={styles.col}>
+                            <TextField
+                            label="Y (any number)"
+                            variant="outlined"
+                            type="number"
+                            className={styles.textfield}
+                            value={input2}
+                            onChange={(e) => setInput2(e.target.value.trim())}
+                            />
+                        </Col> 
+                        <Col sm={3} className={styles.col}>
+                            <Button 
+                            type="submit"
+                            variant="contained" 
+                            color="secondary" 
+                            className={styles.button}
+                            onClick={(e) => { handleSubmit(e) }}
+                            >
+                            Calculate
+                            </Button>
+                        </Col>
+                        <Col sm={3} className={styles.col}>
+                            <ResultTextField
+                            id="result"
+                            label="Result (%)"
+                            variant="outlined"
+                            className={styles.textfield}
+                            value={result}
+                            onFocus={(e) => handleFocus(e)}
+                            />
+                        </Col>
+                    </Row>
+                </form>
+            </Paper>
         </Layout>  
     )
 }

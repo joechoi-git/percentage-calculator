@@ -9,6 +9,10 @@
     font-size: 1rem;
 }
 
+.paper {
+    padding: 1rem;
+}
+
 .tab {
     background-color: #f2f2f2;
 }
