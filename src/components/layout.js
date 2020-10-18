@@ -1,6 +1,7 @@
 import React from "react"
 import { Container, Row, Col, useScreenClass } from "react-grid-system"
 import { Navbar, Nav } from "react-bootstrap";
+import { Link } from "gatsby"
 import {
   EmailShareButton,
   EmailIcon,
@@ -17,10 +18,12 @@ import Helmet from "react-helmet"
 import styles from "./layout.module.css"
 import logo from "../images/logo.png"
 
-export default function Layout({ children }) {
+export default function Layout({ location, children }) {
   const shareUrl = 'https://percentcalculatorpro.com/';
   const title = 'Percent Calculator Pro';
   const screenClass = useScreenClass();
+  console.log(location);
+
   return (
     <Container className={styles.layout}>
       <header style={{ marginBottom: `1.5rem` }}>
@@ -41,10 +44,8 @@ export default function Layout({ children }) {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
-              <Nav.Link href="/">Home</Nav.Link>
-              {/*}
-              <Nav.Link href="/about">About</Nav.Link>
-              {*/}
+              <Link to="/" className={`${styles.navlink} ${location==="/" ? styles.active : ``}`}>Percentage Increase or Decrease (X to Y)</Link>
+              <Link to="/calculator" className={`${styles.navlink} ${location==="/calculator" ? styles.active : ``}`}>Percentage Compute (X out of Y)</Link>
             </Nav>
           </Navbar.Collapse>
         </Navbar>
@@ -58,7 +59,7 @@ export default function Layout({ children }) {
       <footer style={{ marginTop: `1.5rem` }}>
         <Row>
           <Col sm={6}>
-            <p>&copy; 2020 Pro Calculator Series</p>
+            <p>&copy; 2020 Pro Calculator</p>
           </Col>
           <Col sm={6} 
             className={styles.socialshare}

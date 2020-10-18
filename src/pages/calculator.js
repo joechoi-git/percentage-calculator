@@ -14,7 +14,7 @@ const ResultTextField = withStyles({
     },
 })(TextField);
 
-export default function Home() {
+export default function Test() {
     const [input1, setInput1] = React.useState("");
     const [input2, setInput2] = React.useState("");
     const [result, setResult] = React.useState("");
@@ -27,7 +27,7 @@ export default function Home() {
             if (input1!=="" && input2!=="") {
                 setInput1(parseFloat(input1));
                 setInput2(parseFloat(input2));
-                let output = ((input2 / input1) - 1) * 100;
+                let output = (input1 / input2) * 100;
                 setResult(`${output.toFixed(2)}%`);
                 if (output >= 0) {
                     document.getElementById("result").style.color="green";
@@ -46,57 +46,57 @@ export default function Home() {
         }
     }
     return (
-        <Layout location="/">
+        <Layout location="/calculator">
             <SEO 
             title="Percent Calculator Pro" 
             description="Percent Calculator Pro is a free online tool to calculate percentages." 
             image="https://percentcalculatorpro.com/share.jpg" 
             url="https://percentcalculatorpro.com" 
             />
-            <h2 className={styles.h2}>Percentage Increase or Decrease (X to Y)</h2>
-            <p>E.g. If the price moves from $1.50 to $2.25, what is the % difference?</p>
+            <h2 className={styles.h2}>Percentage Compute (X out of Y) </h2>
+            <p>E.g. $160 out of $750 is what percent?</p>
             <form onSubmit={handleSubmit}>
                 <Row className={styles.row}>
                     <Col sm={3} className={styles.col}>
-                        <TextField
+                    <TextField
                         label="X (any number)"
                         variant="outlined"
                         type="number"
                         className={styles.textfield}
                         value={input1}
                         onChange={(e) => setInput1(e.target.value.trim())}
-                        />
+                    />
                     </Col>
                     <Col sm={3} className={styles.col}>
-                        <TextField
+                    <TextField
                         label="Y (any number)"
                         variant="outlined"
                         type="number"
                         className={styles.textfield}
                         value={input2}
                         onChange={(e) => setInput2(e.target.value.trim())}
-                        />
+                    />
                     </Col> 
                     <Col sm={3} className={styles.col}>
-                        <Button 
+                    <Button 
                         type="submit"
                         variant="contained" 
                         color="secondary" 
                         className={styles.button}
                         onClick={(e) => { handleSubmit(e) }}
-                        >
+                    >
                         Calculate
-                        </Button>
+                    </Button>
                     </Col>
                     <Col sm={3} className={styles.col}>
-                        <ResultTextField
+                    <ResultTextField
                         id="result"
                         label="Result (%)"
                         variant="outlined"
                         className={styles.textfield}
                         value={result}
                         onFocus={(e) => handleFocus(e)}
-                        />
+                    />
                     </Col>
                 </Row>
             </form>
