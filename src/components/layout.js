@@ -27,19 +27,18 @@ export default function Layout({ location, children }) {
         <Container className={styles.layout}>
             <header style={{ marginBottom: `1.5rem` }}>
                 <Navbar expand="lg" style={{padding:`0`}}>
-                    <Navbar.Brand href="/">
-                        <h1 
-                            className={styles.logo}
-                            style={{ fontSize: ['md', 'lg', 'xl', 'xxl'].includes(screenClass) ? '1.5rem' : '1.25rem' }}
-                        >
+                    <Link 
+                        to="/"
+                        className={styles.logo}
+                        style={{ fontSize: ['md', 'lg', 'xl', 'xxl'].includes(screenClass) ? '1.5rem' : '1.25rem' }}
+                    >
                         <img 
                             src={logo} 
                             alt="Percent Calculator Pro is a free online tool to calculate percentages."
-                            style={{ height: ['md', 'lg', 'xl', 'xxl'].includes(screenClass) ? '2rem' : '1.25rem' }}
+                            style={{ height: ['md', 'lg', 'xl', 'xxl'].includes(screenClass) ? '2rem' : '1.5rem' }}
                         />
-                            Percent Calculator Pro
-                        </h1>
-                    </Navbar.Brand>
+                        Percent Calculator Pro
+                    </Link>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="mr-auto">
