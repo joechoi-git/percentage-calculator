@@ -14,7 +14,7 @@ const ResultTextField = withStyles({
     },
 })(TextField);
 
-export default function Test() {
+export default function PriceDiscount() {
     const [input1, setInput1] = React.useState("");
     const [input2, setInput2] = React.useState("");
     const [result, setResult] = React.useState("");
@@ -27,8 +27,8 @@ export default function Test() {
             if (input1!=="" && input2!=="") {
                 setInput1(parseFloat(input1));
                 setInput2(parseFloat(input2));
-                let output = (input1 / input2) * 100;
-                setResult(`${output.toFixed(2)}%`);
+                let output = (input1 - (input1 * (input2 / 100)));
+                setResult(`${output.toFixed(2)}`);
                 if (output >= 0) {
                     document.getElementById("result").style.color="green";
                 } else {
@@ -46,21 +46,21 @@ export default function Test() {
         }
     }
     return (
-        <Layout location="/calculator">
+        <Layout location="/price-discount">
             <SEO 
-            title="Percent Calculator Pro" 
-            description="Percent Calculator Pro is a free online tool to calculate percentages." 
-            image="https://percentcalculatorpro.com/share.jpg" 
-            url="https://percentcalculatorpro.com" 
+                title="Percent Calculator Pro | Price Discount" 
+                description="Percent Calculator Pro is a free online tool to calculate percentages." 
+                image="https://percentcalculatorpro.com/share.jpg" 
+                url="https://percentcalculatorpro.com/price-discount" 
             />
             <Paper elevation={3} className={styles.paper}>
-                <h2 className={styles.h2}>Percentage Compute (X out of Y) </h2>
-                <p>E.g. $160 out of $750 is what percent?</p>
+                <h1 className={styles.h2}>Price Discount</h1>
+                <p>E.g. If an item's original cost is $59.99 and it goes on sale by 30%, then what is the final price?</p>
                 <form onSubmit={handleSubmit}>
                     <Row className={styles.row}>
                         <Col sm={3} className={styles.col}>
                         <TextField
-                            label="X (any number)"
+                            label="Original Price"
                             variant="outlined"
                             type="number"
                             className={styles.textfield}
@@ -70,7 +70,7 @@ export default function Test() {
                         </Col>
                         <Col sm={3} className={styles.col}>
                         <TextField
-                            label="Y (any number)"
+                            label="Discount %"
                             variant="outlined"
                             type="number"
                             className={styles.textfield}
@@ -92,7 +92,7 @@ export default function Test() {
                         <Col sm={3} className={styles.col}>
                         <ResultTextField
                             id="result"
-                            label="Result (%)"
+                            label="Final Price"
                             variant="outlined"
                             className={styles.textfield}
                             value={result}

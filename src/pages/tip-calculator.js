@@ -27,8 +27,8 @@ export default function PercentageCalculator() {
             if (input1!=="" && input2!=="") {
                 setInput1(parseFloat(input1));
                 setInput2(parseFloat(input2));
-                let output = (input1 / input2) * 100;
-                setResult(`${output.toFixed(2)}%`);
+                let output = (input1 + (input1 * (input2 / 100)));
+                setResult(`${output.toFixed(2)}`);
                 if (output >= 0) {
                     document.getElementById("result").style.color="green";
                 } else {
@@ -46,21 +46,21 @@ export default function PercentageCalculator() {
         }
     }
     return (
-        <Layout location="/">
+        <Layout location="/tip-calculator">
             <SEO 
-                title="Percent Calculator Pro | Success Rate" 
+                title="Percent Calculator Pro | Tip Calculator" 
                 description="Percent Calculator Pro is a free online tool to calculate percentages." 
                 image="https://percentcalculatorpro.com/share.jpg" 
-                url="https://percentcalculatorpro.com" 
+                url="https://percentcalculatorpro.com/tip-calculator" 
             />
             <Paper elevation={3} className={styles.paper}>
-                <h1 className={styles.h2}>Success Rate</h1>
-                <p>E.g. A basketball player made 17 successful free throws out of 20 attempts. What is the shooting percentage?</p>
+                <h1 className={styles.h2}>Tip Calculator</h1>
+                <p>E.g. If the bill comes out to be $24.95, how much should I pay if I want to include 15% tip?</p>
                 <form onSubmit={handleSubmit}>
                     <Row className={styles.row}>
                         <Col sm={3} className={styles.col}>
                         <TextField
-                            label="# of Success"
+                            label="To Pay"
                             variant="outlined"
                             type="number"
                             className={styles.textfield}
@@ -70,7 +70,7 @@ export default function PercentageCalculator() {
                         </Col>
                         <Col sm={3} className={styles.col}>
                         <TextField
-                            label="# of Attempts"
+                            label="Plus Tip (%)"
                             variant="outlined"
                             type="number"
                             className={styles.textfield}
@@ -92,7 +92,7 @@ export default function PercentageCalculator() {
                         <Col sm={3} className={styles.col}>
                         <ResultTextField
                             id="result"
-                            label="Success Rate (%)"
+                            label="Final Price"
                             variant="outlined"
                             className={styles.textfield}
                             value={result}
