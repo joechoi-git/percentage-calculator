@@ -49,7 +49,7 @@ export default function Home() {
         <Layout location="/stock-options">
             <SEO 
                 title="Percent Calculator Pro | Stock Options"
-                description="Percent Calculator Pro is a free online tool to calculate percentages." 
+                description="PercentCalculatorPro.com is a free online tool to calculate percentages. Use this tool to calculate tips, taxes, success rates, stock options, and discounts." 
                 image="https://percentcalculatorpro.com/share.jpg" 
                 url="https://percentcalculatorpro.com/stock-options" 
             />

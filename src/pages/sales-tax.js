@@ -49,7 +49,7 @@ export default function SalesTax() {
         <Layout location="/sales-tax">
             <SEO 
                 title="Percent Calculator Pro | Sales Tax" 
-                description="Percent Calculator Pro is a free online tool to calculate percentages." 
+                description="PercentCalculatorPro.com is a free online tool to calculate percentages. Use this tool to calculate tips, taxes, success rates, stock options, and discounts." 
                 image="https://percentcalculatorpro.com/share.jpg" 
                 url="https://percentcalculatorpro.com/sales-tax" 
             />

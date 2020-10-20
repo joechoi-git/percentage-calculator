@@ -1,10 +1,12 @@
 import React from "react"
-import { Row, Col } from "react-grid-system"
-import { Button, TextField, Paper } from "@material-ui/core"
+import { TextField, Paper } from "@material-ui/core"
 import { withStyles } from "@material-ui/core/styles"
+import { Link } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import styles from "./page.module.css"
+import ImageBasketbalPlayer from "../images/basketball-player.png"
+import ImageSalesItem from "../images/sales-item.png"
 
 const ResultTextField = withStyles({
     root: {
@@ -48,59 +50,39 @@ export default function PercentageCalculator() {
     return (
         <Layout location="/">
             <SEO 
-                title="Percent Calculator Pro | Success Rate" 
-                description="Percent Calculator Pro is a free online tool to calculate percentages." 
+                title="Percent Calculator Pro" 
+                description="PercentCalculatorPro.com is a free online tool to calculate percentages. Use this tool to calculate tips, taxes, success rates, stock options, and discounts." 
                 image="https://percentcalculatorpro.com/share.jpg" 
                 url="https://percentcalculatorpro.com" 
             />
             <Paper elevation={3} className={styles.paper}>
-                <h1 className={styles.h2}>Success Rate</h1>
-                <p>E.g. A basketball player made 17 successful free throws out of 20 attempts. What is the shooting percentage?</p>
-                <form onSubmit={handleSubmit}>
-                    <Row className={styles.row}>
-                        <Col sm={3} className={styles.col}>
-                        <TextField
-                            label="# of Success"
-                            variant="outlined"
-                            type="number"
-                            className={styles.textfield}
-                            value={input1}
-                            onChange={(e) => setInput1(e.target.value.trim())}
+                <h1 className={styles.h1}>PercentCalculatorPro.com is a free online tool to calculate percentages. Use this tool to calculate tips, taxes, success rates, stock options, and discounts.</h1>
+
+                <Link to="/success-rate" className={styles.link}>Success Rate</Link>
+                <p className={styles.paragraph}>
+                    <Link to="/success-rate"> 
+                        <img 
+                            src={ImageBasketbalPlayer}
+                            className={styles.image}
+                            alt="Calculate success rate for a basketball player"
                         />
-                        </Col>
-                        <Col sm={3} className={styles.col}>
-                        <TextField
-                            label="# of Attempts"
-                            variant="outlined"
-                            type="number"
-                            className={styles.textfield}
-                            value={input2}
-                            onChange={(e) => setInput2(e.target.value.trim())}
+                    </Link>
+                    It is useful to know about the success rate. Success rate is one of the key metrics to measure the performance of a sports player. In baseball, a player's batting average is one of the core metrics to evaluate skill level. In basketball, a player with the higher shooting percentage has the advantage.
+                </p>
+
+                <Link to="/price-discount" className={styles.link}>Price Discount</Link>
+                <p className={styles.paragraph}>
+                    <Link to="/price-discount"> 
+                        <img 
+                            src={ImageSalesItem}
+                            className={styles.image}
+                            alt="Calculate price discount to save money"
                         />
-                        </Col> 
-                        <Col sm={3} className={styles.col}>
-                        <Button 
-                            type="submit"
-                            variant="contained" 
-                            color="secondary" 
-                            className={styles.button}
-                            onClick={(e) => { handleSubmit(e) }}
-                        >
-                            Calculate
-                        </Button>
-                        </Col>
-                        <Col sm={3} className={styles.col}>
-                        <ResultTextField
-                            id="result"
-                            label="Success Rate (%)"
-                            variant="outlined"
-                            className={styles.textfield}
-                            value={result}
-                            onFocus={(e) => handleFocus(e)}
-                        />
-                        </Col>
-                    </Row>
-                </form>
+                    </Link>
+                    Buying items at a lower price is always the prudent thing to do. Sometimes, we will wait until the next holiday just for the sales season to kick in. In other times, when we go shopping, we often see stores advertising that their items are 10% off, 20% off, 30% off, and etc. You can use price discount calculator to know exactly how much money you will be saving by buying this item at a discounted price.
+                </p>
+
+
             </Paper>
         </Layout>  
     )
