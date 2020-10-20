@@ -50,11 +50,6 @@ export default function Layout({ location, children }) {
                         </Nav>
                     </Navbar.Collapse>
                 </Navbar>
-                <Helmet>
-                    <script type="text/javascript">var ezoicId = 221094;</script>
-                    <script type="text/javascript" src="//go.ezoic.net/ezoic/ezoic.js"></script>
-                </Helmet>
-                <div id="ezoic-pub-ad-placeholder-101"> </div>
             </header>
             {children}
             <footer style={{ marginTop: `1.5rem` }}>
