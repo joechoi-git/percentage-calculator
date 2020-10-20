@@ -14,15 +14,14 @@ import {
     WhatsappShareButton,
     WhatsappIcon,
 } from "react-share"; // https://github.com/nygardk/react-share/blob/master/demo/Demo.tsx
-import Helmet from "react-helmet"
+// import Helmet from "react-helmet"
 import styles from "./layout.module.css"
 import logo from "../images/logo.png"
 
 export default function Layout({ location, children }) {
-    const shareUrl = 'https://percentcalculatorpro.com/';
-    const title = 'Percent Calculator Pro';
+    const shareUrl = "https://percentcalculatorpro.com";
+    const title = "PercentCalculatorPro.com is a free online tool to calculate percentages. Use this tool to calculate tips, taxes, success rates, stock options, and discounts.";
     const screenClass = useScreenClass();
-
     return (
         <Container className={styles.layout}>
             <header style={{ marginBottom: `1.5rem` }}>

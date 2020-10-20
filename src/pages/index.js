@@ -1,6 +1,5 @@
 import React from "react"
-import { TextField, Paper } from "@material-ui/core"
-import { withStyles } from "@material-ui/core/styles"
+import { Paper } from "@material-ui/core"
 import { Link } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -11,45 +10,7 @@ import ImageSalesTax from "../images/sales-tax.png"
 import ImageTips from "../images/tips.png"
 import ImageStockMarket from "../images/stock-market.png"
 
-const ResultTextField = withStyles({
-    root: {
-        '& .MuiOutlinedInput-input': {
-        fontWeight: 'bolder',
-        },
-    },
-})(TextField);
-
 export default function PercentageCalculator() {
-    const [input1, setInput1] = React.useState("");
-    const [input2, setInput2] = React.useState("");
-    const [result, setResult] = React.useState("");
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        setResult("");
-        document.getElementById("result").style.color="black";
-        try {
-            if (input1!=="" && input2!=="") {
-                setInput1(parseFloat(input1));
-                setInput2(parseFloat(input2));
-                let output = (input1 / input2) * 100;
-                setResult(`${output.toFixed(2)}%`);
-                if (output >= 0) {
-                    document.getElementById("result").style.color="green";
-                } else {
-                    document.getElementById("result").style.color="red";
-                }
-            }
-        } catch (error) {  
-        }
-    }
-    const handleFocus = (e) => {
-        try {
-            e.target.select();
-            // navigator.clipboard.writeText(result);
-        } catch (error) {
-        }
-    }
     return (
         <Layout location="/">
             <SEO 
