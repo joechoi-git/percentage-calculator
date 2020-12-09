@@ -41,7 +41,6 @@ export default function Layout({ location, children }) {
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="mr-auto">
-                            <Link to="/" className={`${styles.navlink} ${location==="/" ? styles.active : ``}`}>Home</Link>
                             <Link to="/success-rate-calculator" className={`${styles.navlink} ${location==="/success-rate-calculator" ? styles.active : ``}`}>Success Rate</Link>
                             <Link to="/price-discount-calculator" className={`${styles.navlink} ${location==="/price-discount-calculator" ? styles.active : ``}`}>Price Discount</Link>
                             <Link to="/sales-tax-calculator" className={`${styles.navlink} ${location==="/sales-tax-calculator" ? styles.active : ``}`}>Sales Tax</Link>

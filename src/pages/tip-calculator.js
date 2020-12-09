@@ -17,31 +17,37 @@ const ResultTextField = withStyles({
 export default function PercentageCalculator() {
     const [input1, setInput1] = React.useState("");
     const [input2, setInput2] = React.useState("");
-    const [result, setResult] = React.useState("");
+    const [result1, setResult1] = React.useState("");
+    const [result2, setResult2] = React.useState("");
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        setResult("");
-        document.getElementById("result").style.color="black";
+        setResult1("");
+        setResult2("");
+        document.getElementById("result1").style.color="black";
+        document.getElementById("result2").style.color="black";
         try {
             if (input1!=="" && input2!=="") {
                 setInput1(parseFloat(input1));
                 setInput2(parseFloat(input2));
-                let output = (input1 + (input1 * (input2 / 100)));
-                setResult(`${output.toFixed(2)}`);
-                if (output >= 0) {
-                    document.getElementById("result").style.color="green";
+                let output1 = parseFloat((input1 * (input2 / 100)));
+                let output2 = parseFloat(output1) + parseFloat(input1);
+                setResult1(`${output1.toFixed(2)}`);
+                setResult2(`${output2.toFixed(2)}`);
+                if (output1 >= 0) {
+                    document.getElementById("result1").style.color="green";
+                    document.getElementById("result2").style.color="green";
                 } else {
-                    document.getElementById("result").style.color="red";
+                    document.getElementById("result1").style.color="red";
+                    document.getElementById("result2").style.color="red";
                 }
             }
-        } catch (error) {  
+        } catch (error) {
         }
     }
     const handleFocus = (e) => {
         try {
             e.target.select();
-            // navigator.clipboard.writeText(result);
         } catch (error) {
         }
     }
@@ -78,7 +84,7 @@ export default function PercentageCalculator() {
                             onChange={(e) => setInput2(e.target.value.trim())}
                         />
                         </Col> 
-                        <Col sm={3} className={styles.col}>
+                        <Col sm={2} className={styles.col}>
                         <Button 
                             type="submit"
                             variant="contained" 
@@ -89,13 +95,23 @@ export default function PercentageCalculator() {
                             Calculate
                         </Button>
                         </Col>
-                        <Col sm={3} className={styles.col}>
+                        <Col sm={2} className={styles.col}>
                         <ResultTextField
-                            id="result"
+                            id="result1"
+                            label="Tip Amount"
+                            variant="outlined"
+                            className={styles.textfield}
+                            value={result1}
+                            onFocus={(e) => handleFocus(e)}
+                        />
+                        </Col>
+                        <Col sm={2} className={styles.col}>
+                        <ResultTextField
+                            id="result2"
                             label="Final Price"
                             variant="outlined"
                             className={styles.textfield}
-                            value={result}
+                            value={result2}
                             onFocus={(e) => handleFocus(e)}
                         />
                         </Col>
