@@ -55,8 +55,7 @@ export default function Home() {
             />
             <Paper elevation={3} className={styles.paper}>
                 <h1 className={styles.h1}>Stock Options</h1>
-                <p>E.g. I want to buy/sell a call. If the price has to jump from $19.50 to $25 in 5 days, by how much % does it need to go up to be in the money?</p>
-                <p>E.g. I want to buy/sell a put. If the price has to fall from $23.50 to $19 in 15 days, by how much % does it need to go down to be in the money?</p>
+                <p>E.g. If the price has to move from $19.50 (current price) to $25 (strike price) in 5 days, by how much % does it need to go up to be in the money?</p>
                 <form onSubmit={handleSubmit}>
                     <Row className={styles.row}>
                         <Col sm={3} className={styles.col}>
@@ -71,7 +70,7 @@ export default function Home() {
                         </Col>
                         <Col sm={3} className={styles.col}>
                             <TextField
-                            label="Future Price"
+                            label="Future (Strike) Price"
                             variant="outlined"
                             type="number"
                             className={styles.textfield}

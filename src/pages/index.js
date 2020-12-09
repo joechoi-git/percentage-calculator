@@ -21,17 +21,6 @@ export default function PercentageCalculator() {
             />
             <Paper elevation={3} className={styles.paper}>
                 <h1 className={styles.h1}>PercentCalculatorPro.com is a free online tool to calculate percentages. Use this tool to calculate tips, taxes, success rates, stock options, and discounts.</h1>
-                <Link to="/success-rate-calculator" className={styles.link}>Success Rate</Link>
-                <p className={styles.paragraph}>
-                    <Link to="/success-rate-calculator"> 
-                        <img 
-                            src={ImageBasketbalPlayer}
-                            className={styles.image}
-                            alt="Calculate success rate for a basketball player"
-                        />
-                    </Link>
-                    It is useful to know about the success rate. The success rate is one of the key metrics to measure the performance of a sports player. In baseball, a player's batting average is one of the core metrics to evaluate skill level. In basketball, a player with a higher shooting percentage has the advantage.
-                </p>
                 <Link to="/price-discount-calculator" className={styles.link}>Price Discount</Link>
                 <p className={styles.paragraph}>
                     <Link to="/price-discount-calculator"> 
@@ -75,6 +64,17 @@ export default function PercentageCalculator() {
                         />
                     </Link>
                     Buying or selling a stock option contract comes with a bigger risk than buying shares. For investors and traders to make money with stock options, calculating the probability of the underlying stock price to go up or go down to a certain price by a certain date is absolutely critical for success. As an example, let's say that you want to buy a call option of stock that is trading at $18. You want to bet that in 5 days (your expiration date), the stock price will go above $25 (your strike price). Using this stock options calculator, you will learn that the stock price has to increase by 38.89% in 5 days to break even on your investment and make money on this contract. Knowing this info, will you still buy this call option?
+                </p>
+                <Link to="/success-rate-calculator" className={styles.link}>Success Rate</Link>
+                <p className={styles.paragraph}>
+                    <Link to="/success-rate-calculator"> 
+                        <img 
+                            src={ImageBasketbalPlayer}
+                            className={styles.image}
+                            alt="Calculate success rate for a basketball player"
+                        />
+                    </Link>
+                    It is useful to know about the success rate. The success rate is one of the key metrics to measure the performance of a sports player. In baseball, a player's batting average is one of the core metrics to evaluate skill level. In basketball, a player with a higher shooting percentage has the advantage.
                 </p>
             </Paper>
         </Layout>  
