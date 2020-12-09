@@ -46,12 +46,12 @@ export default function PriceDiscount() {
         }
     }
     return (
-        <Layout location="/price-discount">
+        <Layout location="/price-discount-calculator">
             <SEO 
                 title="Percent Calculator Pro | Price Discount" 
                 description="PercentCalculatorPro.com is a free online tool to calculate percentages. Use this tool to calculate tips, taxes, success rates, stock options, and discounts." 
                 image="https://percentcalculatorpro.com/share.jpg" 
-                url="https://percentcalculatorpro.com/price-discount" 
+                url="https://percentcalculatorpro.com/price-discount-calculator" 
             />
             <Paper elevation={3} className={styles.paper}>
                 <h1 className={styles.h2}>Price Discount</h1>

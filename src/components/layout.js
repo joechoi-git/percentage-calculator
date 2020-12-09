@@ -42,11 +42,11 @@ export default function Layout({ location, children }) {
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="mr-auto">
                             <Link to="/" className={`${styles.navlink} ${location==="/" ? styles.active : ``}`}>Home</Link>
-                            <Link to="/success-rate" className={`${styles.navlink} ${location==="/success-rate" ? styles.active : ``}`}>Success Rate</Link>
-                            <Link to="/price-discount" className={`${styles.navlink} ${location==="/price-discount" ? styles.active : ``}`}>Price Discount</Link>
-                            <Link to="/sales-tax" className={`${styles.navlink} ${location==="/sales-tax" ? styles.active : ``}`}>Sales Tax</Link>
+                            <Link to="/success-rate-calculator" className={`${styles.navlink} ${location==="/success-rate-calculator" ? styles.active : ``}`}>Success Rate</Link>
+                            <Link to="/price-discount-calculator" className={`${styles.navlink} ${location==="/price-discount-calculator" ? styles.active : ``}`}>Price Discount</Link>
+                            <Link to="/sales-tax-calculator" className={`${styles.navlink} ${location==="/sales-tax-calculator" ? styles.active : ``}`}>Sales Tax</Link>
                             <Link to="/tip-calculator" className={`${styles.navlink} ${location==="/tip-calculator" ? styles.active : ``}`}>Tip Calculator</Link>
-                            <Link to="/stock-options" className={`${styles.navlink} ${location==="/stock-options" ? styles.active : ``}`}>Stock Options</Link>
+                            <Link to="/stock-options-calculator" className={`${styles.navlink} ${location==="/stock-options-calculator" ? styles.active : ``}`}>Stock Options</Link>
                         </Nav>
                     </Navbar.Collapse>
                 </Navbar>

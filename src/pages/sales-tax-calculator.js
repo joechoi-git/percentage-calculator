@@ -14,7 +14,7 @@ const ResultTextField = withStyles({
     },
 })(TextField);
 
-export default function PercentageCalculator() {
+export default function SalesTax() {
     const [input1, setInput1] = React.useState("");
     const [input2, setInput2] = React.useState("");
     const [result, setResult] = React.useState("");
@@ -27,8 +27,8 @@ export default function PercentageCalculator() {
             if (input1!=="" && input2!=="") {
                 setInput1(parseFloat(input1));
                 setInput2(parseFloat(input2));
-                let output = (input1 / input2) * 100;
-                setResult(`${output.toFixed(2)}%`);
+                let output = (input1 + (input1 * (input2 / 100)));
+                setResult(`${output.toFixed(2)}`);
                 if (output >= 0) {
                     document.getElementById("result").style.color="green";
                 } else {
@@ -46,21 +46,21 @@ export default function PercentageCalculator() {
         }
     }
     return (
-        <Layout location="/success-rate">
+        <Layout location="/sales-tax-calculator">
             <SEO 
-                title="Percent Calculator Pro | Success Rate" 
+                title="Percent Calculator Pro | Sales Tax" 
                 description="PercentCalculatorPro.com is a free online tool to calculate percentages. Use this tool to calculate tips, taxes, success rates, stock options, and discounts." 
                 image="https://percentcalculatorpro.com/share.jpg" 
-                url="https://percentcalculatorpro.com/success-rate" 
+                url="https://percentcalculatorpro.com/sales-tax-calculator" 
             />
             <Paper elevation={3} className={styles.paper}>
-                <h1 className={styles.h2}>Success Rate</h1>
-                <p>E.g. A basketball player made 17 successful free throws out of 20 attempts. What is the shooting percentage?</p>
+                <h1 className={styles.h2}>Sales Tax</h1>
+                <p>E.g. If an item costs $39.99 and the sales tax is 8.875%, then what is the final price?</p>
                 <form onSubmit={handleSubmit}>
                     <Row className={styles.row}>
                         <Col sm={3} className={styles.col}>
                         <TextField
-                            label="# of Success"
+                            label="Item Price"
                             variant="outlined"
                             type="number"
                             className={styles.textfield}
@@ -70,7 +70,7 @@ export default function PercentageCalculator() {
                         </Col>
                         <Col sm={3} className={styles.col}>
                         <TextField
-                            label="# of Attempts"
+                            label="Sales Tax (%)"
                             variant="outlined"
                             type="number"
                             className={styles.textfield}
@@ -92,7 +92,7 @@ export default function PercentageCalculator() {
                         <Col sm={3} className={styles.col}>
                         <ResultTextField
                             id="result"
-                            label="Success Rate (%)"
+                            label="Final Price"
                             variant="outlined"
                             className={styles.textfield}
                             value={result}

@@ -14,7 +14,7 @@ const ResultTextField = withStyles({
     },
 })(TextField);
 
-export default function SalesTax() {
+export default function Home() {
     const [input1, setInput1] = React.useState("");
     const [input2, setInput2] = React.useState("");
     const [result, setResult] = React.useState("");
@@ -27,8 +27,8 @@ export default function SalesTax() {
             if (input1!=="" && input2!=="") {
                 setInput1(parseFloat(input1));
                 setInput2(parseFloat(input2));
-                let output = (input1 + (input1 * (input2 / 100)));
-                setResult(`${output.toFixed(2)}`);
+                let output = ((input2 / input1) - 1) * 100;
+                setResult(`${output.toFixed(2)}%`);
                 if (output >= 0) {
                     document.getElementById("result").style.color="green";
                 } else {
@@ -46,58 +46,59 @@ export default function SalesTax() {
         }
     }
     return (
-        <Layout location="/sales-tax">
+        <Layout location="/stock-options-calculator">
             <SEO 
-                title="Percent Calculator Pro | Sales Tax" 
+                title="Percent Calculator Pro | Stock Options"
                 description="PercentCalculatorPro.com is a free online tool to calculate percentages. Use this tool to calculate tips, taxes, success rates, stock options, and discounts." 
                 image="https://percentcalculatorpro.com/share.jpg" 
-                url="https://percentcalculatorpro.com/sales-tax" 
+                url="https://percentcalculatorpro.com/stock-options-calculator" 
             />
             <Paper elevation={3} className={styles.paper}>
-                <h1 className={styles.h2}>Sales Tax</h1>
-                <p>E.g. If an item costs $39.99 and the sales tax is 8.875%, then what is the final price?</p>
+                <h1 className={styles.h1}>Stock Options</h1>
+                <p>E.g. I want to buy/sell a call. If the price has to jump from $19.50 to $25 in 5 days, by how much % does it need to go up to be in the money?</p>
+                <p>E.g. I want to buy/sell a put. If the price has to fall from $23.50 to $19 in 15 days, by how much % does it need to go down to be in the money?</p>
                 <form onSubmit={handleSubmit}>
                     <Row className={styles.row}>
                         <Col sm={3} className={styles.col}>
-                        <TextField
-                            label="Item Price"
+                            <TextField
+                            label="Current Price"
                             variant="outlined"
                             type="number"
                             className={styles.textfield}
                             value={input1}
                             onChange={(e) => setInput1(e.target.value.trim())}
-                        />
+                            />
                         </Col>
                         <Col sm={3} className={styles.col}>
-                        <TextField
-                            label="Sales Tax (%)"
+                            <TextField
+                            label="Future Price"
                             variant="outlined"
                             type="number"
                             className={styles.textfield}
                             value={input2}
                             onChange={(e) => setInput2(e.target.value.trim())}
-                        />
+                            />
                         </Col> 
                         <Col sm={3} className={styles.col}>
-                        <Button 
+                            <Button 
                             type="submit"
                             variant="contained" 
                             color="secondary" 
                             className={styles.button}
                             onClick={(e) => { handleSubmit(e) }}
-                        >
+                            >
                             Calculate
-                        </Button>
+                            </Button>
                         </Col>
                         <Col sm={3} className={styles.col}>
-                        <ResultTextField
+                            <ResultTextField
                             id="result"
-                            label="Final Price"
+                            label="Result (%)"
                             variant="outlined"
                             className={styles.textfield}
                             value={result}
                             onFocus={(e) => handleFocus(e)}
-                        />
+                            />
                         </Col>
                     </Row>
                 </form>
